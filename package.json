@@ -1,0 +1,22 @@
+{
+  "name": "orval-test",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "gen-orval-api": "orval"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.1.1",
+    "@types/node": "^16.11.41",
+    "axios": "^0.26.1",
+    "msw": "^0.39.2",
+    "prettier": "2.6.2",
+    "swr": "^1.2.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.3.2",
+    "orval": "^6.8.1"
+  }
+}

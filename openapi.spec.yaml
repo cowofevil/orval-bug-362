@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: AllOf
+paths:
+  /workingendpoint:
+    get:
+      summary: An endpoint that uses a working demo of allOf
+      operationId: workingEndpoint
+      tags:
+        - working
+      responses:
+        '200':
+          description: Get working schema
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Working'
+  /brokenendpoint:
+    get:
+      summary: An endpoint that uses a broken demo of allOf
+      operationId: brokenEndpoint
+      tags:
+        - broken
+      responses:
+        '200':
+          description: Get broken schema
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broken'
+components:
+  schemas:
+    CommonProperties:
+      type: object
+      description: The first set of common properties.
+      properties:
+        commonPropsField1:
+          type: string
+          description: 'Common property field #1'
+        commonPropsField2:
+          type: string
+          description: 'Common property field #2'
+    Working:
+      allOf:
+        - $ref: '#/components/schemas/CommonProperties'
+        - type: object
+          description: A working example of using allOf.
+          properties:
+            workingField:
+              type: string
+              description: 'Working field'
+    Broken:
+      allOf:
+        - $ref: '#/components/schemas/CommonProperties'
+        - type: object
+          description: A broken example of using allOf.
